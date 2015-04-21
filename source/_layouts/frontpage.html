@@ -222,12 +222,19 @@
                   <h1>Puppet Labs Documentation</h1>
               </div>
               <div class="hh-col language">
-                  <select>
+                  <select id="language-select">
                       <option>Select a Language</option>
-                      <option>English</option>
-                      <option>Spanish</option>
-                      <option>German</option>
+                      <option data-language="spanish" data-url="http://docs.puppetlabs.com/es/">Español</option>
+                      <option data-language="japanese" data-url="http://docs.puppetlabs.com/ja/">日本語</option>
                   </select>
+                  <script type="text/javascript">
+                      jQuery('#language-select').on('change', function() {
+                          var optionSelected = $("option:selected", this);
+                          if (optionSelected.attr('data-language') != 'null') {
+                              window.location = optionSelected.attr('data-url');
+                          }
+                      });
+                  </script>
               </div>
           </div>
 
